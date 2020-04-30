@@ -1,0 +1,45 @@
+<div class="container">
+    <div class="row my-5">
+        <div class="col-sm-12 col-md-6 d-flex justify-content-sm-center justify-content-md-end">
+            <img src="https://assets.splitwise.com/assets/core/logo-square-65a6124237868b1d2ce2f5db2ab0b7c777e2348b797626816400534116ae22d7.svg"
+                alt="image" width="200px" height="200px">
+        </div>
+        <div class="col-sm-6 col-md-6">
+            <h6>CREATE A GROUP</h6>
+            <form [formGroup]="groupForm" (submit)="onSubmit()">
+                <div>
+                    <div>Group name:</div>
+                    <input type="text" class="form-control-lg my-3" formControlName="groupName">
+                    <h6>GROUP MEMBERS</h6>
+                    <div class="d-flex align-items-center ">
+                        <label>Group member 1:</label>
+                        <select class="custom-select" disabled>
+                            <option>{{myEmail}}</option>
+                        </select>
+                        <i class="fa fa-times text-danger p-2 cursor-pointer" aria-hidden="true" style="visibility: hidden"></i>
+                    </div>
+                    <div class="row mx-0 my-2" formArrayName="members"
+                        *ngFor="let item of members.controls;let i=index">
+                        <div [formGroupName]="i" class="d-flex align-items-center w-100">
+                            <label>Group member {{i+2}}:</label>
+                            <select class="custom-select" (change)="changeCity($event)" formControlName="id"
+                                width="20px">
+                                <option value="">Choose your friend</option>
+                                <option *ngFor="let item of list" [ngValue]="item">{{item.email}}</option>
+                            </select>
+                            <i class="fa fa-times text-danger p-2" aria-hidden="true" (click)="removeAddress(i)"></i>
+                        </div>
+                    </div>
+                    <div>
+                        <a (click)="addPerson()" class="text-primary addPerson"><i class="fa fa-plus"
+                                aria-hidden="true"></i> Add a person</a>
+                    </div>
+
+                    <div class="groupBtn">
+                        <button type="submit" class="btn btn-danger my-2">Save</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

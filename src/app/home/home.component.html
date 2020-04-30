@@ -1,0 +1,24 @@
+<div class="container">
+    <div class="row mt-5 my-5">
+        <div class="col sm-9 md-6 lg-4">
+            <div class="info1">
+                <h1><b>Less stress when sharing expenses{{title}}</b></h1>
+            </div>
+            <div class="info2">
+                <div *ngFor="let item of list" class="d-inline ml-1">
+                    <button type="button" class={{item.class}} (mouseenter)="submit(item)">{{item.btnName}}</button>
+                </div>
+            </div>
+            <div class="info3">
+                <p>Keep track of your shared expenses and balances with housemates, trips, groups, friends, and family.
+                </p>
+            </div>
+            <div class="info4">
+                <button type="button" class="btn btn-danger btn-lg" routerLink="signup" routerLinkActive="router-link-active" >Sign up!</button>
+            </div>
+        </div>
+        <div class="">
+            <img [src]="imagePath" [alt]="alt" width="800px"> 
+        </div>
+    </div>
+</div>

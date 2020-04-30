@@ -1,0 +1,47 @@
+<hr class="mx-0 my-0">
+<div class="row">
+    <div class="col d-inline border-right text-center">total balance<div [style.color]="total<0?'red':'green'">₹
+            {{total | number:'3.2-2'}}</div>
+    </div>
+    <div class="col d-inline border-right text-center">you owe<div style="color:red;">₹ {{-owe}}</div>
+    </div>
+    <div class="col d-inline text-center">you are owed<div style="color:green;">₹ {{owed}}</div>
+    </div>
+</div>
+<hr class="mx-0 my-0">
+<div class="row mx-0 px-0">
+    <div class="col-6 border-right">
+        <div class="font-weight-bold text-secondary">YOU OWE</div>
+        <div *ngFor="let item of list" class="items my-2 px-3">
+            <div *ngIf="0>item.owe" (click)="show()" class="row">
+                <div class="ml-2 mr-2 mt-1"><img
+                        src="https://assets.splitwise.com/assets/core/logo-square-65a6124237868b1d2ce2f5db2ab0b7c777e2348b797626816400534116ae22d7.svg"
+                        alt="icon" width="35px" height="35px" class="d-inline-block">
+                </div>
+                <div>{{item.id.email.substring(0,this.item.id.email.lastIndexOf("@"))}}<div class="text-danger medium">
+                        you
+                        owe ₹
+                        {{-item.owe}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-6 text-right">
+        <div class="font-weight-bold text-secondary">YOU ARE OWED</div>
+        <div *ngFor="let item of list" class="text-left items my-2 px-3">
+            <div *ngIf="item.owe>0" (click)="show()" class="row">
+                <div class="ml-2 mr-2 mt-1"><img
+                        src="https://assets.splitwise.com/assets/core/logo-square-65a6124237868b1d2ce2f5db2ab0b7c777e2348b797626816400534116ae22d7.svg"
+                        alt="icon" width="35px" height="35px" class="d-inline-block">
+                </div>
+                <div>{{item.id.email.substring(0,this.item.id.email.lastIndexOf("@"))}}<div class="text-success medium">
+                        owes
+                        you
+                        ₹ {{item.owe}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

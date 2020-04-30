@@ -1,0 +1,34 @@
+<header>
+    <div class="container-fluid p-0">
+        <nav class="navbar navbar-expand-lg navbar-light py-1" [class.afterLogin]=success [class.beforeLogin]=!success>
+            <div class="row d-flex justify-content-between w-100">
+                <a class="navbar-brand mx-5" href="#">
+                    <img src="https://assets.splitwise.com/assets/core/logo-square-65a6124237868b1d2ce2f5db2ab0b7c777e2348b797626816400534116ae22d7.svg"
+                        alt="icon" width="25px" height="25px" class="d-inline-block align-top mx-2">Splitwise
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse"
+                    data-target="#navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item active" *ngIf="!success">
+                            <a class="nav-link" href="#" routerLink="login">Log
+                                in<span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item active" class="btnSignup" *ngIf="!success">
+                            <a class="btn btn-success" href="#" routerLink="signup">Sign up</a>
+                        </li>
+                        <li *ngIf="success">
+                            <p-menubar class="menu" [model]="items"></p-menubar>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </div>
+</header>
+<footer class="footer bg-dark fixed-bottom text-center text-white py-3">
+    Copyright©2020 Splitwise
+</footer>

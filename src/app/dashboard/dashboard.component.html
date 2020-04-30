@@ -1,0 +1,47 @@
+<div class="container">
+    <div class="row d-flex justify-content-between w-100">
+        <div class="col sm-3 lg-3 px-0 mx-1 ">
+            <ul class="mx-4 left" style="list-style-type:none;">
+                <li (click)="dashboard()" class="menu py-1 px-3">Dashboard</li>
+                <li (click)="recent()" class="menu py-1 px-3">Recent activity</li>
+                <li (click)="all()" class="menu py-1 px-3">All expenses</li>
+
+                <!-- <li class="py-1"><span class="menu py-1 px-3" (click)="createGroups()">Create groups</span>
+                    <ul>
+                        <li class="menu mx-0" *ngFor="let group of groupList" (click)="groups(group)">{{group.groupName}}</li>
+                    </ul>
+                </li> -->
+
+                <li class="py-1"><span class="px-3 py-1 menu">Invite friends<i
+                            class="fa fa-plus ml-4 text-secondary plus align-center" (click)="inviteFriends()"
+                            aria-hidden="true">Add</i></span>
+
+                    <ul>
+                        <li class="menu mx-0" *ngFor="let friend of friendList" (click)="friends(friend)">
+                            {{friend.email.substring(0,this.friend.email.lastIndexOf("@"))}}</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <div class="col-6 px-0 py-0 mb-0 w-100 border-left border-right">
+            <div class="d-flex justify-content-between bg-light py-3">
+                <div class="d-inline px-3">
+                    <h2><strong>{{title | titlecase}}</strong></h2>
+                </div>
+                <div class="d-inline">
+                    <button type="button" class="btn-sm btn-danger mx-1 sm-3 modals" (click)="openAddDialog()">Add an
+                        expense</button>
+                    <button type="button" class="btn-sm btn-success mx-1 modals" (click)="openSettleDialog()">Settle
+                        up</button>
+                </div>
+            </div>
+            <router-outlet></router-outlet>
+        </div>
+        <div class="col sm-3 my-1">
+            <!-- <h6><strong>TOTAL BALANCE<div class="col d-inline">
+                        <div class="mx-3" [style.color]="total<0?'red':'green'">₹
+                            {{total | number:'3.2-2'}}</div>
+                    </div></strong></h6> -->
+        </div>
+    </div>
+</div>

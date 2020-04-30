@@ -1,0 +1,33 @@
+.menu {
+  cursor: pointer;
+}
+.menu:hover,
+.menu:active {
+  color: green;
+  background-color: rgb(241, 239, 239);
+}
+::ng-deep {
+  .ui-dialog {
+    .ui-dialog-titlebar {
+      background-color: #5bc5a7 !important;
+    }
+    .ui-dialog-title{
+      color: white;
+    }
+    .ui-dialog-titlebar .ui-dialog-titlebar-icon{
+      color: white !important;
+    }
+  }
+}
+.left{
+  margin-right: -5px !important;
+}
+.modals{
+  cursor: pointer !important;
+}
+.plus{
+  font-size: 10px !important;
+}
+.plus:hover{
+  color: green !important;
+}

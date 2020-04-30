@@ -1,0 +1,15 @@
+// @import url('https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700');
+
+// @font-face {
+//   font-family: "Roboto", sans-serif !important;
+//   src: url("./assets/Roboto/Roboto-Regular.ttf");
+// }
+* {
+    font-family: Roboto, sans-serif;  
+  }
+@font-face {
+    font-family: 'Roboto';
+    src: url('./assets/Roboto/Roboto-Regular.ttf');
+    font-weight: normal;
+    font-style: normal;
+}

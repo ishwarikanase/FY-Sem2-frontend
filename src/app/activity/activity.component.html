@@ -1,0 +1,19 @@
+<div class="w-100 container">
+        <div class="border-bottom py-3 px-2 row activity" (click)="show()" *ngFor="let item of list">
+                <div class="col-1">
+                        <img src="https://assets.splitwise.com/assets/core/logo-square-65a6124237868b1d2ce2f5db2ab0b7c777e2348b797626816400534116ae22d7.svg"
+                                alt="icon" width="25px" height="25px" class="d-inline-block align-top">
+                </div>
+                <div class="col-9" *ngIf="item.category=='EXPENSES'">
+                        {{item.activityBy.email.substring(0,item.activityBy.email.lastIndexOf("@"))}}
+                        added expense with
+                        {{item.activityWith.email.substring(0,item.activityWith.email.lastIndexOf("@"))}}
+                </div>
+                <div class="col-9" *ngIf="item.category=='ALL'">
+                        {{item.activityBy.email.substring(0,item.activityBy.email.lastIndexOf("@"))}}
+                        invited {{item.activityWith.email.substring(0,item.activityWith.email.lastIndexOf("@"))}}
+                </div>
+                <div class="col-2"></div>
+        </div>
+
+</div>

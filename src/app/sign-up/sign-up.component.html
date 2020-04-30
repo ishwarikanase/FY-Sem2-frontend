@@ -1,0 +1,26 @@
+<div class="container-fluid">
+    <p-toast></p-toast>
+    <div class="row my-5">
+        <div class="col-sm-12 col-md-6 d-flex justify-content-sm-center justify-content-md-end">
+            <img src="https://assets.splitwise.com/assets/core/logo-square-65a6124237868b1d2ce2f5db2ab0b7c777e2348b797626816400534116ae22d7.svg"
+                alt="image" width="200px" height="200px">
+        </div>
+        <div class="col-sm-6 col-md-6">
+            <h6>INTRODUCE YOURSELF:</h6>
+            <form [formGroup]="signupForm" (submit)="onSubmit()">
+                <div>
+                    <div>Hi there! My name is</div>
+                    <input type="text" formControlName="username" class="form-control-lg">
+                    <div>Here’s my email address:</div>
+                    <input type="email" formControlName="email" class="form-control-lg">
+                    <div>And here’s my password:</div>
+                    <input type="password" formControlName="password" class="form-control-lg">
+                    <div class="signUuBtn">
+                        <button type="submit" class="btn btn-danger my-2 px-2 py-2" [disabled]="signupForm.invalid">Sign
+                            me up!</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

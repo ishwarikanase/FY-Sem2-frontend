@@ -1,0 +1,78 @@
+<div class="container">
+    <form [formGroup]="expenseForm" (submit)="onSubmit()">
+        <div class="row">
+            <div class="col-3 name mr-2">With you and :</div>
+            <div class="col-8">
+                <div class="row">
+                    <div formArrayName="consumersArray" class="mr-2"
+                        *ngFor="let item of consumersArray.controls;let i=index">
+                        <div [formGroupName]="i" d-flex align-items-start w-100>
+                            <select class="custom-select ml-0 mb-2 w-100" (ngModelChange)="changeExpense($event)"
+                                formControlName="consumer">
+                                <option value="">Choose</option>
+                                <option *ngFor="let item of friendsList" [ngValue]="item">
+                                    {{item.email ? item.email : item.groupName}}</option>
+                            </select>
+                            <i class="fa fa-times text-danger p-2" aria-hidden="true" (click)="removeAddress(i)"></i>
+                        </div>
+                    </div>
+                    <div>
+                        <i class="fa fa-plus mt-3" (click)="addPerson()" aria-hidden="true">Add</i>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr class="mt-3">
+        <div class="row">
+            <div class="col-6 border-right">
+                <input type="text" placeholder="Enter a description..." formControlName="description" class="input">
+                <hr>
+                <input type="text" placeholder="amount..." formControlName="amount" class="input">
+                <hr class="my-3">
+                <div class="text-secondary splitLine my-0">Paid by <button type="button" class="splitBtn">you</button>
+                    and
+                    split
+                    <select class="custom-select ml-0 mb-2 type" (change)="changeType($event)">
+                        <option *ngFor="let item of types" [value]="item.value">{{item.name}}</option>
+                    </select>.
+                </div>
+                <div>
+                    <div class="row">
+                        <div class="col-6 my-2">
+                            <p-calendar placeholder="select date" formControlName="date"></p-calendar>
+                        </div>
+                        <div class="col-6 my-3">
+                            <button type="button" class="btn btn-sm proceedBtn" [disabled]="expenseForm.invalid"
+                                (click)="proceedBtn()">Proceed</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-6" *ngIf="flag">
+                <div class="row">
+                    <div class="mt-3 col-9">
+                        <p-checkbox label="{{myEmail}}"></p-checkbox>
+                    </div>
+                    <!-- <div class="mt-3 col-3 border-bottom">
+                        <input type="text" placeholder="0.00" class="shared" [disabled]="sharingType">
+                    </div> -->
+                </div>
+                <div class="row" *ngFor="let item of iterable">
+                    <div class="mt-3 col-9">
+                        <p-checkbox value="item" label="{{item.email}}"></p-checkbox>
+                    </div>
+                    <div class="mt-3 col-3 border-bottom">
+                        <input type="text" placeholder="0.00" class="shared" [disabled]="sharingType"
+                            [ngModelOptions]="{standalone: true}" [(ngModel)]="afterSubmitShare[item.email]">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr>
+
+        <div class="d-flex justify-content-end">
+            <button class="btn btn-secondary mx-2" (click)="reset()" type="reset">Reset</button>
+            <button class="btn save" [disabled]="expenseForm.invalid" type="submit">save</button>
+        </div>
+    </form>
+</div>

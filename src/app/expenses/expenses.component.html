@@ -1,0 +1,45 @@
+<div class="container">
+    <p-accordion>
+        <p-accordionTab *ngFor="let item of list">
+            <p-header>
+                <div class="row border-bottom d-flex align-items-center mainContent" (mouseenter)="display=true"
+                    (mouseleave)="display=false" *ngIf="item.category=='EXPENSES'">
+                    <div class="col-2 px-0">
+                        <div class="w-50 bg-light dateClass px-2" title={{item.expense.expenseDate|date}}>
+                            <div class="month">{{item.expense.expenseDate|date:'LLL'}}</div>
+                            <div class="day">{{item.expense.expenseDate|date:'dd'}}</div>
+                        </div>
+                    </div>
+                    <div class="col-5 px-0 py-3 sub">{{item.expense.expenseDescription}}</div>
+                    <div class="col-2 px-0">
+                        <div class="whoPaid text-secondary">you paid</div>
+                        <div>{{item.expense.totalAmount}}</div>
+                    </div>
+                    <div class="col-2 px-0">
+                        <div class="whoPaid text-secondary">raj lent you</div>
+                        <div class="text-danger">{{item.expense.LoggedInOwe}}</div>
+                    </div>
+                    <div class="col-1 px-2" *ngIf="display">
+                        <i class="fa fa-times text-danger p-2" aria-hidden="true" (click)="removeAddress()"></i>
+                    </div>
+                </div>
+            </p-header>
+            <h6 *ngIf="item.category=='EXPENSES'"><strong>Description : </strong>{{item.expense.expenseDescription}}
+            </h6>
+            <div class="row" *ngIf="item.category=='EXPENSES'">
+                <div class="col-6">{{item.expense.totalAmount}} added by Ishwari K. on
+                    {{item.expense.expenseDate | date}} </div>
+                <div class="col-6"><button type="button" class="btn-sm btn-danger sm-3 px-0 py-0">Edit
+                        expense</button>
+                </div>
+            </div>
+            <hr>
+            <div></div>
+            <div class="my-2">NOTES AND COMMENTS</div>
+            <input type="text" name="comment" class="form-control-lg" placeholder="Add a comment">
+            <div>
+                <button type="button" class="btn-sm btn-danger sm-3 my-2 px-0 py-0">POST</button>
+            </div>
+        </p-accordionTab>
+    </p-accordion>
+</div>

@@ -1,0 +1,17 @@
+::ng-deep {
+  .ui-menubar {
+    border: none !important;
+    .ui-menuitem-link:focus {
+      box-shadow: none !important;
+    }
+  }
+}
+
+.beforeLogin{
+  background-color: white;
+}
+
+.afterLogin{
+  background-color: #5bc5a7;
+
+}

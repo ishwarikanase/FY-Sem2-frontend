@@ -1,0 +1,91 @@
+::ng-deep {
+  //   .ui-chips {
+  //     width: 100% !important;
+  //     border: none !important;
+  //     .ui-inputtext {
+  //       width: 100% !important;
+  //       border: none !important;
+  //       box-shadow: none !important;
+  //       .ui-chips-token {
+  //         background-color: gray !important;
+  //       }
+  //       .ui-chips-input-token input {
+  //         font-size: 20px !important;
+  //         line-height: 2 !important;
+  //       }
+  //     }
+  //   }
+  .ui-calendar {
+    .ui-inputtext {
+      border: none !important;
+      box-shadow: none !important;
+      border-bottom: 1px solid gray !important;
+      // width:100px;
+    }
+  }
+}
+::ng-deep {
+  .ui-menubar {
+    border: none !important;
+    .ui-menuitem-link {
+      padding: none !important;
+    }
+    .ui-menuitem-link:focus {
+      box-shadow: none !important;
+    }
+    .ui-menuitem-link:hover {
+      background-color: white !important;
+    }
+  }
+}
+
+.splitLine {
+  line-height: 3;
+}
+.name {
+  font-size: 20px;
+  line-height: 2;
+}
+.input {
+  outline: none !important;
+  border: none !important;
+  width: 100%;
+  line-height: 2;
+  font-size: 20px;
+}
+
+.shared {
+  outline: none !important;
+  border: none !important;
+  // border-bottom: 1px solid gray !important;
+
+  // width: 100%;
+  // line-height: 2;
+  // font-size: 20px;
+}
+
+.proceedBtn {
+  font-size: 10px;
+  background-color: #5bc5a7 !important;
+}
+
+.splitBtn {
+  border: none;
+  color: #5bc5a7 !important;
+  // border-radius: 15px;
+  // padding: 0px;
+}
+select {
+  width: 180px !important;
+}
+.type {
+  width: 100px !important;
+  border: none !important;
+}
+
+.save {
+  background-color: #5bc5a7 !important;
+}
+// .groups{
+// display: flex  !important;
+// }
